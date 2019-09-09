@@ -1,4 +1,6 @@
-package com.training.udemy.demo;
+package com.training.udemy.data;
+
+import com.training.udemy.interfaces.Coach;
 
 public class BaseballCoach implements Coach {
 
@@ -26,6 +28,15 @@ public class BaseballCoach implements Coach {
     @Override
     public String getFavoriteStatement() {
         return "";
+    }
+
+    @Override
+    public void printAttributes() {
+        System.out.println("Coach's Name: " + this.getFirstName() + " " + this.getLastName());
+        System.out.println("Team Playing for: " + this.getTeam());
+        System.out.println("Today's Goals: " + this.getDailyWorkout());
+        System.out.println("Favorite Statement: " + this.getFavoriteStatement());
+        System.out.println("----------------");
     }
 
 }

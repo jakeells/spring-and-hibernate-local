@@ -1,4 +1,4 @@
-package com.training.udemy.demo;
+package com.training.udemy.interfaces;
 
 public interface Coach {
     public String getDailyWorkout();
@@ -10,4 +10,6 @@ public interface Coach {
     public String getTeam();
 
     public String getFavoriteStatement();
+
+    public void printAttributes();
 }

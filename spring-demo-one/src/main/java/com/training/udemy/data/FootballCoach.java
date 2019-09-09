@@ -1,4 +1,6 @@
-package com.training.udemy.demo;
+package com.training.udemy.data;
+
+import com.training.udemy.interfaces.Coach;
 
 public class FootballCoach implements Coach {
 
@@ -24,23 +26,37 @@ public class FootballCoach implements Coach {
         this.statement = statement;
     }
 
+    @Override
     public String getDailyWorkout() {
         return workout;
     }
 
+    @Override
     public String getFirstName() {
         return firstName;
     }
 
+    @Override
     public String getLastName() {
         return lastName;
     }
 
+    @Override
     public String getTeam() {
         return team;
     }
 
+    @Override
     public String getFavoriteStatement() {
         return statement;
+    }
+
+    @Override
+    public void printAttributes() {
+        System.out.println("Coach's Name: " + this.getFirstName() + " " + this.getLastName());
+        System.out.println("Team Playing for: " + this.getTeam());
+        System.out.println("Today's Goals: " + this.getDailyWorkout());
+        System.out.println("Favorite Statement: " + this.getFavoriteStatement());
+        System.out.println("----------------");
     }
 }
