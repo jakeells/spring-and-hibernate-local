@@ -2,45 +2,56 @@ package com.training.udemy.data;
 
 import com.training.udemy.interfaces.Coach;
 import com.training.udemy.interfaces.FortuneService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
 
-@Scope(value=ConfigurableBeanFactory.SCOPE_SINGLETON)
-public class BaseballCoach implements Coach {
-    
-    //define a private field for the dependency
+public class HockeyCoach implements Coach {
+
+    private String workout;
+    private String firstName;
+    private String lastName;
+    private String team;
+    private String statement;
+    private String fortune;
+
     private FortuneService fortuneService;
 
-    //define a constructor for dependency injection
-    @Autowired
-    public BaseballCoach(FortuneService theFortuneService) {
-        this.fortuneService = theFortuneService;
+    public HockeyCoach() {
+        this.workout = "Practice checking";
+        this.firstName = "Smile";
+        this.lastName = "Toothless";
+        this.team = "Incredibles";
+        this.statement = "winners always win";
+        this.fortune = "Hit them hard and you will win!";
+        this.fortuneService = new HappyFortuneService();
+        System.out.println("default constructor - fortune service: " + this.fortuneService.getFortune());
+    }
+
+    public void setFortuneService(FortuneService fortuneService) {
+        this.fortuneService = fortuneService;
     }
 
     @Override
     public String getDailyWorkout() {
-        return "Spend 30 minutes on batting practice";
+        return workout;
     }
 
     @Override
     public String getFirstName() {
-        return "Jake";
+        return firstName;
     }
 
     @Override
     public String getLastName() {
-        return "Ellsworth";
+        return lastName;
     }
 
     @Override
-    public  String getTeam() {
-        return "Colorado Rockies";
+    public String getTeam() {
+        return team;
     }
 
     @Override
     public String getFavoriteStatement() {
-        return "";
+        return statement;
     }
 
     @Override
@@ -55,8 +66,6 @@ public class BaseballCoach implements Coach {
 
     @Override
     public String getDailyFortune() {
-        //use my fortuneService to get a fortune
         return fortuneService.getFortune();
     }
-
 }
