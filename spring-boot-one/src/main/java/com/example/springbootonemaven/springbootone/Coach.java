@@ -1,4 +1,4 @@
-package com.training.udemy.interfaces;
+package com.example.springbootonemaven.springbootone;
 
 public interface Coach {
     public String getDailyWorkout();
@@ -12,6 +12,4 @@ public interface Coach {
     public String getFavoriteStatement();
 
     public void printAttributes();
-
-    public String getDailyFortune();
 }

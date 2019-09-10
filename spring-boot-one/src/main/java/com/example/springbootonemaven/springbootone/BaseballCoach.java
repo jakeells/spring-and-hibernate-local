@@ -1,19 +1,8 @@
-package com.training.udemy.data;
+package com.example.springbootonemaven.springbootone;
 
-import com.training.udemy.interfaces.Coach;
-import com.training.udemy.interfaces.FortuneService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.springbootonemaven.springbootone.Coach;
 
 public class BaseballCoach implements Coach {
-
-    //define a private field for the dependency
-    private FortuneService fortuneService;
-
-    //define a constructor for dependency injection
-    @Autowired
-    public BaseballCoach(FortuneService theFortuneService) {
-        this.fortuneService = theFortuneService;
-    }
 
     @Override
     public String getDailyWorkout() {
@@ -35,6 +24,7 @@ public class BaseballCoach implements Coach {
         return "Colorado Rockies";
     }
 
+    //not yet implemented, will get to it in epic 3
     @Override
     public String getFavoriteStatement() {
         return "";
@@ -46,14 +36,7 @@ public class BaseballCoach implements Coach {
         System.out.println("Team Playing for: " + this.getTeam());
         System.out.println("Today's Goals: " + this.getDailyWorkout());
         System.out.println("Favorite Statement: " + this.getFavoriteStatement());
-        System.out.println("Fortune: " + this.getDailyFortune());
         System.out.println("----------------");
-    }
-
-    @Override
-    public String getDailyFortune() {
-        //use my fortuneService to get a fortune
-        return fortuneService.getFortune();
     }
 
 }
