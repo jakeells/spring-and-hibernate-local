@@ -2,6 +2,7 @@ package com.training.udemy.data;
 
 import com.training.udemy.interfaces.Coach;
 import com.training.udemy.interfaces.FortuneService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class HockeyCoach implements Coach {
 
@@ -14,6 +15,7 @@ public class HockeyCoach implements Coach {
 
     private FortuneService fortuneService;
 
+    @Autowired
     public HockeyCoach() {
         this.workout = "Practice checking";
         this.firstName = "Smile";
@@ -68,4 +70,13 @@ public class HockeyCoach implements Coach {
     public String getDailyFortune() {
         return fortuneService.getFortune();
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
 }

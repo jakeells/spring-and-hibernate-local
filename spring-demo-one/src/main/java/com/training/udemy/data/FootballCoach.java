@@ -14,7 +14,7 @@ public class FootballCoach implements Coach {
     private String team;
     private String statement;
 
-    @Autowired
+    //@Autowired
     public FootballCoach(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
@@ -76,4 +76,5 @@ public class FootballCoach implements Coach {
     public String getDailyFortune() {
         return fortuneService.getFortune();
     }
+
 }

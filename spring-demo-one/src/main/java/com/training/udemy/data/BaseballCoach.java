@@ -2,7 +2,7 @@ package com.training.udemy.data;
 
 import com.training.udemy.interfaces.Coach;
 import com.training.udemy.interfaces.FortuneService;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 
@@ -12,8 +12,11 @@ public class BaseballCoach implements Coach {
     //define a private field for the dependency
     private FortuneService fortuneService;
 
+    public BaseballCoach() {
+        fortuneService = new HappyFortuneService();
+    }
     //define a constructor for dependency injection
-    @Autowired
+
     public BaseballCoach(FortuneService theFortuneService) {
         this.fortuneService = theFortuneService;
     }
@@ -57,6 +60,14 @@ public class BaseballCoach implements Coach {
     public String getDailyFortune() {
         //use my fortuneService to get a fortune
         return fortuneService.getFortune();
+    }
+
+    public void doMyStartUpStuff() {
+        System.out.println("Baseball Coach - inside the doMySTARTUPStuff method");
+    }
+
+    public void doMyEndingStuff() {
+        System.out.println("Baseball Coach - inside the doMyENDINGStuff method");
     }
 
 }
