@@ -3,7 +3,7 @@ package com.udemy.springdemoannotations.source;
 import com.udemy.springdemoannotations.interfaces.Coach;
 import org.springframework.stereotype.Component;
 
-@Component("thatSillyCoach")
+@Component
 public class TennisCoach implements Coach {
 
     @Override
